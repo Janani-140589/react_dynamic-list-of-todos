@@ -77,7 +77,7 @@ export const App: React.FC = () => {
             </div>
 
             <div className="block">
-              {showLoader && <Loader />}
+              {(showLoader && todos.length >= 0) && <Loader />}
               {todos.length > 0 && !error && (
                 <TodoList
                   todos={filteredTodos()}
