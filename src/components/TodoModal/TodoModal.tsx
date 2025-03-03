@@ -40,6 +40,7 @@ export const TodoModal: React.FC<Prop> = ({
                 type="button"
                 className="delete"
                 data-cy="modal-close"
+                aria-label="Close modal"
                 onClick={() => {
                   onClose({} as Todo);
                   setShowLoader(false);

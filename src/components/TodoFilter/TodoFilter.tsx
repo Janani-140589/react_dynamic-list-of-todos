@@ -46,6 +46,7 @@ export const TodoFilter: React.FC<Prop> = ({
             data-cy="clearSearchButton"
             type="button"
             className="delete"
+            aria-label="Clear search"
             onClick={() => setQuery('')}
           />
         )}

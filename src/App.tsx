@@ -14,7 +14,7 @@ import { User } from './types/User';
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [ddOption, setDDOption] = useState('all');
-  const [query, setquery] = useState('');
+  const [query, setQuery] = useState('');
   const [error, setError] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
   const [selectedTodo, setSelectedTodo] = useState<Todo>({} as Todo);
@@ -26,7 +26,10 @@ export const App: React.FC = () => {
         setTodos(resolve);
         setShowLoader(false);
       })
-      .catch(() => setError(true));
+      .catch(() => {
+        setError(true);
+        setShowLoader(false);
+      });
 
     if (selectedTodo.userId) {
       getUser(selectedTodo.userId)
@@ -34,7 +37,10 @@ export const App: React.FC = () => {
           setUser(resolve);
           setShowLoader(false);
         })
-        .catch(() => setError(true));
+        .catch(() => {
+          setError(true);
+          setShowLoader(false);
+        });
     } else {
       setUser({} as User);
     }
@@ -66,7 +72,7 @@ export const App: React.FC = () => {
                 ddOption={ddOption}
                 setDDOption={setDDOption}
                 query={query}
-                setQuery={setquery}
+                setQuery={setQuery}
               />
             </div>
 

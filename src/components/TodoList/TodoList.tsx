@@ -57,7 +57,6 @@ export const TodoList: React.FC<Prop> = ({
             </td>
             <td className="has-text-right is-vcentered">
               <button
-                key={todo.userId}
                 data-cy="selectButton"
                 className="button"
                 type="button"
